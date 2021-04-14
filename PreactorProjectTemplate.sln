@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.514
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApsPbxLibrary", "ApsLibrary\ApsPbxLibrary.csproj", "{8DC38F51-4AE6-42AF-BBA8-52F975358046}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ApsLibrarySetup", "ApsLibrarySetup\PreactorLibrarySetup.vdproj", "{3AC453B4-193A-4610-92A5-2F47CB9673D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DC38F51-4AE6-42AF-BBA8-52F975358046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC38F51-4AE6-42AF-BBA8-52F975358046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC38F51-4AE6-42AF-BBA8-52F975358046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC38F51-4AE6-42AF-BBA8-52F975358046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AC453B4-193A-4610-92A5-2F47CB9673D4}.Debug|Any CPU.ActiveCfg = Debug
+		{3AC453B4-193A-4610-92A5-2F47CB9673D4}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FE36FB3-A472-4BB5-81FC-12D595F5D81E}
+	EndGlobalSection
+EndGlobal
