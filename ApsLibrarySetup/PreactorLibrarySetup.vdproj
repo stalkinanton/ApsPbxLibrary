@@ -82,12 +82,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C19D315023EE22390DFE023BF3C35482"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_DF15A9D0AFFE420A9C77D2B9DA50ED3F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -113,6 +107,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_39ED6E7B8DE759358A52C65CB60D9A92"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C19D315023EE22390DFE023BF3C35482"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -420,9 +420,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:PreactorLibrarySetup"
+        "ProductName" = "8:APS Pbx Library"
         "ProductCode" = "8:{9B811383-8BCA-458D-A9F7-6FE6478D6989}"
-        "PackageCode" = "8:{9C0CC789-E77E-4162-AFB5-215560E833B7}"
+        "PackageCode" = "8:{CD67CAA3-B42F-4F82-A010-A693FA893AC3}"
         "UpgradeCode" = "8:{932C7C25-4ACF-4F67-A876-CF16DEB812D1}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -433,11 +433,11 @@
         "Manufacturer" = "8:Siemens"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Библиотека функций Preactor"
-        "Subject" = "8:Библиотека функций Preactor"
-        "ARPCONTACT" = "8:АйтиКонсалт"
+        "Title" = "8:Библиотека формирования заказов Opcenter APS"
+        "Subject" = "8:Библиотека формирования заказов Opcenter APS"
+        "ARPCONTACT" = "8:Siemens"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:Библиотека функций Preactor"
+        "ARPCOMMENTS" = "8:Библиотека формирования заказов Opcenter APS"
         "ARPURLINFOABOUT" = "8:"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
