@@ -38,6 +38,11 @@ namespace ApsPbxLibrary
         /// 1. Есть PESP "SMC Default", запускающий связку по Default
         /// 2. Наследуются Priority, Due Date и обозначение Demand в Orders.String Attribute 1
         /// 3. Products.Numerical Attribute 1 - размер партии для деления ПЗ
+        /// Деление с применением MAX LOT SIZE не используется, т.к. в документации требуется,
+        /// чтобы при использовании этого классификатора таблица Orders была связана с Products
+        /// через DATABASE, а не LOOKUP
+        /// При развертывании заказов с комбинацией MAX LOT SIZE и LOOKUP деление выполнялось, но
+        /// планирование выполнялось некорректно
         /// </remarks>
         public int Run(ref PreactorObj preactorComObject, ref object pespComObject)
         {
@@ -144,19 +149,48 @@ namespace ApsPbxLibrary
         /// Создание производственного заказа на основе дефицита по заданному ТП в заданном количестве
         /// </summary>
         /// <param name="shortage">данные о восполняемом дефиците</param>
-        /// <param name="routeCode">применяемый ТП</param>
         /// <param name="quantity">размер создаваемого заказа</param>
-        void CreateWorkOrder(Shortage shortage, string routeCode, double quantity)
+        void CreateWorkOrder(Shortage shortage, double quantity)
         {
             string orderNo = GetNewOrderNo();
             int orderRecNo = CU.Preactor.CreateRecord("Orders");
             CU.Preactor.WriteField("Orders", "Order No.", orderRecNo, orderNo);
-            CU.Preactor.WriteField("Orders", "Part No.", orderRecNo, routeCode);
+            CU.Preactor.WriteField("Orders", "Part No.", orderRecNo, shortage.PartNo);
             CU.Preactor.WriteField("Orders", "Quantity", orderRecNo, quantity);
             CU.Preactor.WriteField("Orders", "Due Date", orderRecNo, shortage.DueDate);
             CU.Preactor.ExpandJob("Orders", orderRecNo);
             CU.Preactor.WriteField("Orders", DEMAND_ORDERNO_ATTR, orderRecNo, shortage.DemandOrderNo);
             CU.Preactor.WriteField("Orders", "Priority", orderRecNo, shortage.Priority);
+            SplitOrderOperations(orderNo);
+        }
+
+        /// <summary>
+        /// Деление отдельных операций на подпартии в соответствии с настройкой BATCH_SIZE_ATTR
+        /// </summary>
+        /// <param name="orderNo">Номер заказа</param>
+        void SplitOrderOperations(string orderNo)
+        {
+            CU.WriteScriptVariable("ExprVar", orderNo);
+            List<int> recNumsForSplit = CU.FindMatchingRecords("Orders", $"(~{{$Order No.}}~ == ~{{$PESP_ExprVar}}~) && " +
+                $"({{#{BATCH_SIZE_ATTR}}} > 0) && ({{#Quantity}} > {{#{BATCH_SIZE_ATTR}}})");
+            if (!recNumsForSplit.Any())
+                return;
+            CU.Preactor.FindMaxValue("Orders", "Number", out double maxId);
+            int recId = (int)maxId;
+            foreach (int recNo in recNumsForSplit)
+            {
+                double batchSize = CU.Preactor.ReadFieldDouble("Orders", BATCH_SIZE_ATTR, recNo);
+                double qty = CU.Preactor.ReadFieldDouble("Orders", "Quantity", recNo);
+                while (qty > batchSize)
+                {
+                    int newRecNo = CU.Preactor.CreateRecord("Orders");
+                    CU.Preactor.CopyRecord("Orders", recNo, newRecNo);
+                    CU.Preactor.WriteField("Orders", "Number", newRecNo, ++recId);
+                    CU.Preactor.WriteField("Orders", "Quantity", newRecNo, batchSize);
+                    qty -= batchSize;
+                }
+                CU.Preactor.WriteField("Orders", "Quantity", recNo, qty);
+            }
         }
 
         class Shortage
