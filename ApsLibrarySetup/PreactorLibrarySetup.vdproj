@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0C530E11AFE94C9195754B5BF5C4578C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_39ED6E7B8DE759358A52C65CB60D9A92"
         "OwnerKey" = "8:_CE0663C574F422251EFDDA5D9E87ED31"
         "MsmSig" = "8:_UNDEFINED"
@@ -210,6 +216,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C530E11AFE94C9195754B5BF5C4578C"
+            {
+            "SourcePath" = "8:teamgantt.ico"
+            "TargetName" = "8:teamgantt.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_A3EC7DA2115D44BE9355553C934DFFA0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_39ED6E7B8DE759358A52C65CB60D9A92"
             {
             "AssemblyRegister" = "3:1"
@@ -421,15 +447,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:APS Pbx Library"
-        "ProductCode" = "8:{9B811383-8BCA-458D-A9F7-6FE6478D6989}"
-        "PackageCode" = "8:{CD67CAA3-B42F-4F82-A010-A693FA893AC3}"
+        "ProductCode" = "8:{F1F354F0-1B04-405F-B13E-DAD786327CF4}"
+        "PackageCode" = "8:{92DED8F7-CF50-47F9-B1E4-FE50784BD9C7}"
         "UpgradeCode" = "8:{932C7C25-4ACF-4F67-A876-CF16DEB812D1}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:Siemens"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -439,7 +465,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Библиотека формирования заказов Opcenter APS"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_0C530E11AFE94C9195754B5BF5C4578C"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"

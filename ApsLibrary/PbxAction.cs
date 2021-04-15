@@ -128,7 +128,7 @@ namespace ApsPbxLibrary
             {
                 if (batchSize > shortage.Quantity)
                     batchSize = shortage.Quantity;
-                CreateWorkOrder(shortage, shortage.PartNo, batchSize);
+                CreateWorkOrder(shortage, batchSize);
                 shortage.Quantity -= batchSize;
             }
             return true;
